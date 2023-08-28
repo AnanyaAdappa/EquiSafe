@@ -11,12 +11,12 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import {
-  Search,
-  Message,
+  // Search,
+  // Message,
   DarkMode,
   LightMode,
-  Notifications,
-  Help,
+  // Notifications,
+  // Help,
   Menu,
   Close,
 } from "@mui/icons-material";
@@ -40,6 +40,8 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const fullName = `${user?.firstName} ${user?.lastName}`;
+  const healthInsurance = "Health Insurance";
+  const lifeInsurance = "Life Insurance";
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -58,7 +60,7 @@ const Navbar = () => {
         >
           EquiSafe
         </Typography>
-        {isNonMobileScreens && (
+        {/* {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
             borderRadius="9px"
@@ -70,22 +72,73 @@ const Navbar = () => {
               <Search />
             </IconButton>
           </FlexBetween>
-        )}
+        )} */}
       </FlexBetween>
 
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
-          <IconButton onClick={() => dispatch(setMode())}>
+          {/* <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkMode sx={{ fontSize: "25px" }} />
             ) : (
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
             )}
-          </IconButton>
-          <Message sx={{ fontSize: "25px" }} />
+          </IconButton> */}
+          {/* <Message sx={{ fontSize: "25px" }} />
           <Notifications sx={{ fontSize: "25px" }} />
-          <Help sx={{ fontSize: "25px" }} />
+          <Help sx={{ fontSize: "25px" }} /> */}
+
+          <FormControl variant="standard" value={healthInsurance}>
+            <Select
+              value={healthInsurance}
+              sx={{
+                backgroundColor: neutralLight,
+                width: "150px",
+                borderRadius: "0.25rem",
+                p: "0.25rem 1rem",
+                "& .MuiSvgIcon-root": {
+                  pr: "0.25rem",
+                  width: "2rem",
+                },
+                "& .MuiSelect-select:focus": {
+                  backgroundColor: neutralLight,
+                },
+              }}
+              input={<InputBase />}
+            >
+              <MenuItem value={healthInsurance}>
+                <Typography>{healthInsurance}</Typography>
+              </MenuItem>
+              {/* <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem> */}
+            </Select>
+          </FormControl>
+
+          <FormControl variant="standard" value={lifeInsurance}>
+            <Select
+              value={lifeInsurance}
+              sx={{
+                backgroundColor: neutralLight,
+                width: "150px",
+                borderRadius: "0.25rem",
+                p: "0.25rem 1rem",
+                "& .MuiSvgIcon-root": {
+                  pr: "0.25rem",
+                  width: "3rem",
+                },
+                "& .MuiSelect-select:focus": {
+                  backgroundColor: neutralLight,
+                },
+              }}
+              input={<InputBase />}
+            >
+              <MenuItem value={lifeInsurance}>
+                <Typography>{lifeInsurance}</Typography>
+              </MenuItem>
+              {/* <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem> */}
+            </Select>
+          </FormControl>
+
           <FormControl variant="standard" value={fullName}>
             <Select
               value={fullName}
@@ -110,6 +163,14 @@ const Navbar = () => {
               <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>
           </FormControl>
+
+          <IconButton onClick={() => dispatch(setMode())}>
+            {theme.palette.mode === "dark" ? (
+              <DarkMode sx={{ fontSize: "25px" }} />
+            ) : (
+              <LightMode sx={{ color: dark, fontSize: "25px" }} />
+            )}
+          </IconButton>
         </FlexBetween>
       ) : (
         <IconButton
@@ -148,7 +209,7 @@ const Navbar = () => {
             alignItems="center"
             gap="3rem"
           >
-            <IconButton
+            {/* <IconButton
               onClick={() => dispatch(setMode())}
               sx={{ fontSize: "25px" }}
             >
@@ -157,10 +218,61 @@ const Navbar = () => {
               ) : (
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
-            </IconButton>
-            <Message sx={{ fontSize: "25px" }} />
+            </IconButton> */}
+            {/* <Message sx={{ fontSize: "25px" }} />
             <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} />
+            <Help sx={{ fontSize: "25px" }} /> */}
+
+            <FormControl variant="standard" value={healthInsurance}>
+              <Select
+                value={healthInsurance}
+                sx={{
+                  backgroundColor: neutralLight,
+                  width: "150px",
+                  borderRadius: "0.25rem",
+                  p: "0.25rem 1rem",
+                  "& .MuiSvgIcon-root": {
+                    pr: "0.25rem",
+                    width: "2rem",
+                  },
+                  "& .MuiSelect-select:focus": {
+                    backgroundColor: neutralLight,
+                  },
+                }}
+                input={<InputBase />}
+              >
+                <MenuItem value={healthInsurance}>
+                  <Typography>{healthInsurance}</Typography>
+                </MenuItem>
+                {/* <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem> */}
+              </Select>
+            </FormControl>
+
+            <FormControl variant="standard" value={lifeInsurance}>
+              <Select
+                value={lifeInsurance}
+                sx={{
+                  backgroundColor: neutralLight,
+                  width: "150px",
+                  borderRadius: "0.25rem",
+                  p: "0.25rem 1rem",
+                  "& .MuiSvgIcon-root": {
+                    pr: "0.25rem",
+                    width: "3rem",
+                  },
+                  "& .MuiSelect-select:focus": {
+                    backgroundColor: neutralLight,
+                  },
+                }}
+                input={<InputBase />}
+              >
+                <MenuItem value={lifeInsurance}>
+                  <Typography>{lifeInsurance}</Typography>
+                </MenuItem>
+                {/* <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem> */}
+              </Select>
+            </FormControl>
+
             <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}
@@ -187,6 +299,14 @@ const Navbar = () => {
                 </MenuItem>
               </Select>
             </FormControl>
+
+            <IconButton onClick={() => dispatch(setMode())}>
+              {theme.palette.mode === "dark" ? (
+                <DarkMode sx={{ fontSize: "25px" }} />
+              ) : (
+                <LightMode sx={{ color: dark, fontSize: "25px" }} />
+              )}
+            </IconButton>
           </FlexBetween>
         </Box>
       )}
